@@ -17,7 +17,7 @@ We recommend using instances with at least 4 GB of memory; for example, we teste
 2. Hetzner: CX33 | x86 | 80 GB (8GB memory) - **we recommend**
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/elementarlabs/circlo-deploy/main/setup.sh | bash
+curl -sSL https://raw.githubusercontent.com/elementarlabsdev/circlo-deploy/main/setup.sh | bash
 ```
 
 This script will:
@@ -72,7 +72,7 @@ If you need to install these tools manually:
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/elementarlabs/circlo-deploy.git
+    git clone https://github.com/elementarlabsdev/circlo-deploy.git
     cd circlo-deploy
     ```
 

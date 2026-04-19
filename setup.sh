@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Environment setup script for the circlo-deploy project
-# Run: curl -sSL https://raw.githubusercontent.com/elementarlabs/circlo-deploy/main/setup.sh | bash
+# Run: curl -sSL https://raw.githubusercontent.com/elementarlabsdev/circlo-deploy/main/setup.sh | bash
 
 set -e
 
-REPO_URL="https://github.com/elementarlabs/circlo-deploy.git"
+REPO_URL="https://github.com/elementarlabsdev/circlo-deploy.git"
 INSTALL_DIR="circlo-deploy"
 
 # 1. Update and install necessary packages
