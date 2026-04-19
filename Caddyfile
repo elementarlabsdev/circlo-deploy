@@ -1,0 +1,78 @@
+{
+	email {$CERT_MAIL}
+	acme_ca https://acme-v02.api.letsencrypt.org/directory
+}
+
+{$DOMAIN} img.{$DOMAIN} ws.{$DOMAIN} captcha.{$DOMAIN} {
+	encode gzip
+
+	@root_host host {$DOMAIN}
+	@img_host host img.{$DOMAIN}
+	@ws_host host ws.{$DOMAIN}
+	@captcha_host host captcha.{$DOMAIN}
+
+	##########
+	# ROOT
+	##########
+	handle @root_host {
+		handle /robots.txt {
+			rewrite * /api/v1/robots-txt
+			reverse_proxy api:3000
+		}
+
+		handle /sitemap-index.xml {
+			rewrite * /api/v1/sitemap/index
+			reverse_proxy api:3000
+		}
+
+		handle_path /sitemap/publications/{id}.xml {
+			rewrite * /api/v1/sitemap/publications/page/{id}
+			reverse_proxy api:3000
+		}
+
+		handle /api/v1/* {
+			reverse_proxy api:3000
+		}
+
+		handle /public/* {
+			reverse_proxy api:3000
+		}
+
+		handle /media/* {
+			reverse_proxy api:3000
+		}
+
+		handle {
+			reverse_proxy app:4000
+		}
+	}
+
+	##########
+	# CAPTCHA
+	##########
+	handle @captcha_host {
+		reverse_proxy cap:3001
+	}
+
+	##########
+	# IMG
+	##########
+	handle @img_host {
+		@cors_origin {
+			header Origin https://{$DOMAIN}
+			header Origin https://*.{$DOMAIN}
+		}
+
+		header @cors_origin Access-Control-Allow-Origin "{header.origin}"
+		header Access-Control-Allow-Methods "GET, OPTIONS"
+		header Access-Control-Allow-Headers "Content-Type, Authorization"
+		reverse_proxy imageproxy:8080
+	}
+
+	##########
+	# WS
+	##########
+	handle @ws_host {
+		reverse_proxy api:3002
+	}
+}
