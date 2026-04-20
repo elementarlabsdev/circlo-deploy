@@ -69,7 +69,7 @@ services:
 
   api:
     container_name: api
-    image: elementarlabs/circlo-api:1.0
+    image: elementarlabs/circlo-api:latest
     restart: always
     volumes:
       - ./data/public:/app/public
@@ -128,7 +128,7 @@ services:
 
   app:
     container_name: app
-    image: elementarlabs/circlo-app:1.0
+    image: elementarlabs/circlo-app:latest
     restart: always
     environment:
       LOCALE: $LOCALE
