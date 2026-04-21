@@ -1,5 +1,8 @@
 # Circlo Deploy
 
+Circlo is a modern self-hosted community platform designed for creators, teams, and organizations to build private or public communities with discussions, posts, and monetized content spaces.
+It includes membership plans, role-based access control, and structured content spaces for scalable community growth.
+
 ## Live Demo
 
 Demo link: [https://circlodemo.com](https://circlodemo.com)
@@ -14,7 +17,7 @@ For user:
 * User login: user@example.com
 * User password: 11111111
 
-Automated deployment scripts for the Circlo project.
+### Automated deployment scripts for the Circlo project.
 
 The installation takes about 10 minutes and is divided into 2 steps to begin:
 
