@@ -4,11 +4,15 @@
 
 Demo link: [https://circlodemo.com](https://circlodemo.com)
 
-Admin login: demo@example.com
-Admin password: 11111111
+For admin:
 
-User login: user@example.com
-User password: 11111111
+* Admin login: demo@example.com
+* Admin password: 11111111
+
+For user:
+
+* User login: user@example.com
+* User password: 11111111
 
 Automated deployment scripts for the Circlo project.
 
