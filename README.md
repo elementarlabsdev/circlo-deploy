@@ -1,5 +1,15 @@
 # Circlo Deploy
 
+## Live Demo
+
+Demo link: [https://circlodemo.com](https://circlodemo.com)
+
+Admin login: demo@example.com
+Admin password: 11111111
+
+User login: user@example.com
+User password: 11111111
+
 Automated deployment scripts for the Circlo project.
 
 The installation takes about 10 minutes and is divided into 2 steps to begin:
