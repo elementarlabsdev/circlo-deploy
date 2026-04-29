@@ -49,7 +49,7 @@ services:
       - circlo
 
   cap:
-    image: tiago2/cap:latest
+    image: tiago2/cap:2.2.1
     container_name: cap
     environment:
       - ADMIN_KEY=${CAP_ADMIN_KEY:?CAP_ADMIN_KEY is required}
