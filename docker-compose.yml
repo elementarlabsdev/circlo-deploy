@@ -89,6 +89,7 @@ services:
       LOCALE: ${LOCALE:-en}
       REDIS_URL: ${REDIS_URL:?REDIS_URL is required}
       CAPTCHA_HOST_URL: https://captcha.$DOMAIN
+      CAP_ADMIN_KEY: ${CAP_ADMIN_KEY:?CAP_ADMIN_KEY is required}
     depends_on:
       database:
         condition: service_healthy
