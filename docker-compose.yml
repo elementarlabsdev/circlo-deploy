@@ -16,7 +16,7 @@ services:
       - circlo
 
   imageproxy:
-    image: willnorris/imageproxy
+    image: ghcr.io/willnorris/imageproxy:latest
     container_name: imageproxy
     environment:
       IMAGEPROXY_CACHE: "redis://:$REDIS_PASSWORD@redis:6379"
