@@ -16,19 +16,16 @@ services:
       - circlo
 
   imageproxy:
-    image: willnorris/imageproxy:latest
+    image: ghcr.io/willnorris/imageproxy
     container_name: imageproxy
     environment:
       IMAGEPROXY_CACHE: "redis://:$REDIS_PASSWORD@redis:6379"
       IMAGEPROXY_BASEURL: "https://$DOMAIN"
-    # healthcheck:
-    #   test: ["CMD-SHELL", "sh -c 'exec 3<>/dev/tcp/127.0.0.1/8080 && echo -e \"GET /favicon.ico HTTP/1.1\\r\\nHost: localhost\\r\\n\\r\\n\" >&3 && cat <&3 | grep -q \"HTTP/1.1\"'"]
-    #   interval: 10s
-    #   timeout: 5s
-    #   retries: 5
     depends_on:
       redis:
         condition: service_healthy
+        required: true
+    restart: unless-stopped
     networks:
       - circlo
     extra_hosts:
