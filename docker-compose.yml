@@ -108,6 +108,29 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+  
+  text-quality-worker:
+    container_name: text-quality-worker
+    image: api
+    restart: always
+    command: [ "npm", "run", "start:text-quality-worker:prod" ]
+    volumes:
+      - ./data/text-quality-models:/app/temp
+    environment:
+      SKIP_DB_INIT: "true"
+      ENV: ${ENV:-prod}
+      DATABASE_URL: ${DATABASE_URL:?DATABASE_URL is required}
+      LOCALE: ${LOCALE:-en}
+      REDIS_URL: ${REDIS_URL:?REDIS_URL is required}
+    depends_on:
+      database:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      api:
+        condition: service_started
+    networks:
+      - circlo
 
   webserver:
     image: caddy:2.7-alpine
