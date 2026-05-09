@@ -111,7 +111,7 @@ services:
   
   text-quality-worker:
     container_name: text-quality-worker
-    image: api
+    image: elementarlabs/circlo-text-quality-worker:latest
     restart: always
     command: [ "npm", "run", "start:text-quality-worker:prod" ]
     volumes:
